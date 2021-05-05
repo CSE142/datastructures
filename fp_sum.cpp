@@ -20,6 +20,18 @@
 #include <algorithm>
 #include <iterator>
 
+// These macros, MY_START_TIMER and MY_STOP_TIMER, are used specifically to do two things:
+// 1. create new timers for each phase, to see how long each portion takes 
+// 2. create moneta tags for each phase
+// To get only moneta traces, continue to use DUMP_START_ALL and DUMP_STOP
+#define MY_START_TIMER(tag) {				\
+			ArchLabTimer timer;		\
+			timer.attr("phase", tag).go();	\
+			DUMP_START_ALL(tag, false) 
+				    
+#define MY_STOP_TIMER(tag) 	       	    DUMP_STOP(tag);	\
+	}
+		    
 using namespace std;
 
 template <class T>
@@ -182,15 +194,6 @@ int main(int argc, char *argv[])
 		DUMP_STOP("vector");
 	} else if (ds[0] == "list") {
 		std::list<float> values_list;
-#define MY_START_TIMER(tag) {				\
-			ArchLabTimer timer;		\
-			timer.attr("phase", tag).go();	\
-			DUMP_START_ALL(tag, false) 
-				    
-#define MY_STOP_TIMER(tag) 	       	    DUMP_STOP(tag);	\
-	}
-		    
-		    
 		MY_START_TIMER("init");
 		values_list = init_random_list(sizes[0]);
 		MY_STOP_TIMER("init");
