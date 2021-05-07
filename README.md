@@ -18,6 +18,7 @@ This lab will be completed on your own.
 Watch here for answers to FAQs and notifications about important updates.
 
 1. Removed mentions of `*.inst_mix.csv`.  You don't need it.
+2. Revised suggested order for Part 2 to reflect what was covered in lecture.
 
 ## Integrated Worksheet and README
 
@@ -638,10 +639,7 @@ speed)?
 
 #### Getting Started with IPC
 
-**TODO** For next time, take them through the process step by step for
-  the Watts functions.  Get them to an improved but not "good enough"
-  level of performance.
-
+We'll go through an example in class on Monday.
 
 #### Thoughts on MBMPS
 
@@ -687,7 +685,7 @@ effects of changes to one metric on the others.
 
 #### How to Proceed From Here
 
-We recommend working in this order: `IPC`, `MCMPS`, `MBMPS`, and `all_around`.
+We recommend working in this order: `MBMPS`, `MCMPS`, `IPC`, and `all_around`.
 It's just a suggestion.  You should definitely do `all_around` at the last.
 
 #### Optimize the Metrics
