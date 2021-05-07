@@ -17,6 +17,8 @@ This lab will be completed on your own.
 
 Watch here for answers to FAQs and notifications about important updates.
 
+1. Removed mentions of `*.inst_mix.csv`.  You don't need it.
+
 ## Integrated Worksheet and README
 
 **READ THIS CAREFULLY**
@@ -224,9 +226,9 @@ Next, we'll collect performance counter data.  This needs to run in the cloud, s
 runlab --run-git-remotely -- make fp_sum_vector.perfcount
 ```
 
-This will generate `fp_sum_vector.inst_mix.csv` and `fp_sum_vector.l1.csv`.
+This will generate  `fp_sum_vector.l1.csv`.
 
-`.l1.csv` contains the L1 cache performance counters and `.inst_mix.csv` will contain information about the instruction mix.   You can collect the data for the other data structures by replacing `vector` with the other datastructures `list`, `set` and `unordered_set` in the command above.
+`.l1.csv` contains the L1 cache performance counters.   You can collect the data for the other data structures by replacing `vector` with the other datastructures `list`, `set` and `unordered_set` in the command above.
 
 You now have a trove of data about how all the versions of the program behave.
 
