@@ -19,6 +19,7 @@ Watch here for answers to FAQs and notifications about important updates.
 
 1. Removed mentions of `*.inst_mix.csv`.  You don't need it.
 2. Revised suggested order for Part 2 to reflect what was covered in lecture.
+3. Added some advice about getting started.
 
 ## Integrated Worksheet and README
 
@@ -637,6 +638,16 @@ mispredictions?  Which of these factors can be influenced by
 the program (rather than being the result of, for instance, the clock
 speed)?
 
+The questions for MCMPS and MBMPS are pretty simple:
+
+1.  MBMPS:  How do you create a branch that is as unpredictable as possible and execute it as fast as possible?
+
+2.  MCMPS: How do you generate a sequence of memory accesses that cause as many misses as quickly as possible?
+
+So, start with a program has what's needed to affect the metric (e.g., a memory operation or branch that executes many times).  Look at the assembly output.   Measure performance.  Think about the results.  Try something new.  
+
+Keep it simple.
+
 #### Getting Started with IPC
 
 We'll go through an example in class on Monday.
@@ -695,7 +706,7 @@ thinking, investigation, and experimentation.
 
 ##### Thinking
 
-Based on what you've learned about how the pipeline works, how can you get
+Based on what you've learned about how the pipeline, caches, and branch prediction works, how can you get
 behavior each event calls for?
 
 ##### Investigation
@@ -703,6 +714,10 @@ behavior each event calls for?
 Look at the assembly!  Doing well on these events demands that you
 look at the assembly to make sure it's doing what you expect.  You can generate assembly for `foo.cpp` with `make foo.s`.
 
+##### Experimentation
+
+For the best results, try several different approaches.  Be open to
+surprising results and pursue them.  Try simple things.
 
 ---
 **Pro Tip**
@@ -717,12 +732,31 @@ Typing `/<function_name>` will search for your function.
 
 ---
 
-##### Experimentation
+##### Basic Alogrithm for Doing This Lab
 
-For the best results, try several different approaches.  Be open to
-surprising results and pursue them.  Try simple things.
+```
+for e in [MBMPS, CMPS, IPC, all_around]:
+    think_about_what_the_event_requires(e) # Think in terms of what you need instructions to do (e.g., a banch to mispredict a lot)
+    s = simplest_possible_solution(e) # Something that has what's necessary to affect the target metric (e.g., a branch that executes a lot)
+    best_solution = s
+    best_perf = 0
+    while(!satisfied_with_performance(s, e)):
+        asm = `make e` + ".s"
+        look_at(asm)
+        if (looks_like_you_think_it_should(asm)):
+            perf = measure_perf(s, e)
+            if perf > best_perf:
+                best_perf = perf
+                best_solution = s
+        think_about(s, perf, e)
+        s = improve(s, e)
+```
 
-
+In summary:
+1.  Start small.  Try something!  Try several things!
+2.  Look at the assembly a lot.
+3.  Iterate quickly.
+4.  Keep it simple.
 
 ### Tips
 
