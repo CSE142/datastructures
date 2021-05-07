@@ -20,6 +20,7 @@ Watch here for answers to FAQs and notifications about important updates.
 1. Removed mentions of `*.inst_mix.csv`.  You don't need it.
 2. Revised suggested order for Part 2 to reflect what was covered in lecture.
 3. Added some advice about getting started.
+4. Added a Common problems section and how to resolve them when moneta tags don't show up.
 
 ## Integrated Worksheet and README
 
@@ -211,7 +212,10 @@ Collect and explore traces for `list`, `set` and `unordered_set` as well.  Be sy
 Exiting application early
 Collected 10000000 memory requests
 ```
-You can pass `--memops 20000000` (or some other value) to allow the creation of larger files (which might make the Moneta viewer crash more frequently) or `--file-count 2` which will break up the trace across multiple (in this case 2) files.  You'll have to load and view them separately.
+You can pass `--memops 20000000` (or some other value) to allow the creation of larger files (which might make the Moneta viewer crash more frequently) or `--file-count 2` which will break up the trace across multiple (in this case 2) files.  You'll have to load and view them separately. Please note that `--memops` and `--file-count` are mtrace arguments and not arguments to the executable. For example, to increase the memops, the new command line should look like this:
+```
+mtrace --trace fp_sum_vector --memops 20000000 -- ./fp_sum.exe --datastructure vector --size 4096
+```
 
 ---
 
@@ -241,6 +245,22 @@ merge-csv fp_sum*.csv | pretty-csv -
 ```
 
 to get all the data in one place.
+
+### Common Problems
+
+#### Moneta tags not showing up
+
+There could be several reasons why your newly added tags aren't showing up in moneta. Here are some of the common pitfalls and how to avoid them:
+
+1. Make sure you recompile your code after making changes, and that it compiles successfully. Run `make fp_sum.exe` after you update `fp_sum.cpp` and check that there are no errors. Otherwise you're simply running the older version of the executable which most likely doesn't have the tags you added!
+2. If you added the `--file-count` argument to mtrace, it splits the trace across multiple files. Perhaps the tags you added are in another trace file? Make sure you load the other trace files and check them for your tags.
+3. The moneta tags show up only if there are accesses to the address range specified in the `DUMP_START` function. In case you're not sure how to get the addresses, simply use the `DUMP_START_ALL` function! It makes your life easier by tagging all the accesses within the calls to `DUMP_START_ALL` and `DUMP_STOP`. An example usage is:
+
+```
+DUMP_START_ALL("mynewtag", false)
+<... lines of code ...>
+DUMP_STOP("mynewtag")
+```
 
 Now answer the questions below. These are graded.
 
