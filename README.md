@@ -22,6 +22,7 @@ Watch here for answers to FAQs and notifications about important updates.
 3. Added some advice about getting started.
 4. Added a Common problems section and how to resolve them when moneta tags don't show up.
 5. Clarified problem 6.
+6. Replaced references to `fp_add` with `fp_sum`.
 
 ## Integrated Worksheet and README
 
@@ -501,7 +502,7 @@ list.py's stack
 
 ```
 
-##### P9: (2 points) Based on the traces and by comparing the results `fp_add.exe --datatstructure list` and `fp_add.exe --datastructure vector`, does Python use arrays or linked lists to store its lists?  How can you tell?   Point to specific evidence from in the screen capture above.
+##### P9: (2 points) Based on the traces and by comparing the results `fp_sum.exe --datatstructure list` and `fp_sum.exe --datastructure vector`, does Python use arrays or linked lists to store its lists?  How can you tell?   Point to specific evidence from in the screen capture above.
 
 ```
 
