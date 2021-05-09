@@ -21,6 +21,7 @@ Watch here for answers to FAQs and notifications about important updates.
 2. Revised suggested order for Part 2 to reflect what was covered in lecture.
 3. Added some advice about getting started.
 4. Added a Common problems section and how to resolve them when moneta tags don't show up.
+5. Clarified problem 6.
 
 ## Integrated Worksheet and README
 
@@ -458,7 +459,7 @@ Collected xxxxxxxx memory requests
 
 Make a note of the `xxxxxxxx` value.  Then run `mtrace` with a different trace name and change the command line argument for array size from 1000 to 1.  How many memory requests did it execute?  
 
-#### P6 (1 Point) What fraction of memory requests in  `python list.py 1000` are actually related to doing the computation?
+#### P6 (1 Point) What fraction of memory requests in the trace of `python list.py 1000` are actually related to doing the computation (i.e., the initialization, sorting, and summing)?
 
 ```
 
