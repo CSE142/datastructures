@@ -23,6 +23,8 @@ Watch here for answers to FAQs and notifications about important updates.
 4. Added a Common problems section and how to resolve them when moneta tags don't show up.
 5. Clarified problem 6.
 6. Replaced references to `fp_add` with `fp_sum`.
+7. Added text describing new features in the lab under "Tasks To Perform"
+8. Added a note about how to approach MCMPS.
 
 ## Integrated Worksheet and README
 
@@ -83,7 +85,7 @@ See the Tour de Cache section below for details on how that part will
 be graded.
 
 ---
-# Part 1 Starts here
+# Part I Starts here
 --- 
 
 ## The Data Structure Zoo
@@ -619,6 +621,7 @@ The basic command line to run is
 ```
 runlab --run-git-remotely
 ```
+
 ### A Word of Advice and Warning
 
 The lab requires three things:
@@ -670,6 +673,50 @@ So, start with a program has what's needed to affect the metric (e.g., a memory 
 
 Keep it simple.
 
+#### Practice Running Individual Events
+
+The code in `tourDeCache.cpp` provides command line arguments to run a subset of the events.  For instance:
+
+```
+tourDeCache.exe --function IPC
+```
+
+will just run `IPC`.
+
+Running `tourDeCache.exe` on `dsmlp` is not useful, since there are no performance counters, but you can also use these command line options with the `EXPERIMENT_CMD_LINE_ARGS` variable in `config.env`.  For instance, setting
+
+```
+EXPERIMENT_CMD_LINE_ARGS=--function IPC
+```
+
+in that file and then running:
+
+```
+runlab --run-git-remotely -- make experiment.csv
+```
+
+Will run `IPC` on the autograder.
+
+Please note that if you want to the actual metrics for the event,
+you'll need to copy part of the value of `TOUR_DE_CACHE_CMD_LINE_ARGS`
+to `EXPERIMENT_CMD_LINE_ARGS` in `config.env`.
+
+#### Practice Generating Assembly code
+
+There's a new `make` target: `make asm` that will just build the `.s`
+files for your code.  If you get tired of waiting you can do `make -j4
+asm` to compile everything at once.
+
+#### Learing To Collect Instruction Mix Data
+
+If you add `--stat-set inst_mix.cfg` to `EXPERIMENT_CMD_LINE_ARGS` you
+can get information about what fraction of the program is memory
+operations, branches, etc.  Due to hardware restrictions, you can't
+collect all this information _and_ compute the metrics we need for the
+events during the same run.
+
+### How To Approach Each Event
+
 #### Getting Started with IPC
 
 We'll go through an example in class on Monday.
@@ -710,6 +757,14 @@ Check `IPC.cpp` for help on `fast_rand` usage. The numbers are random enough for
 
 ---
 
+#### Thoughts on MCMPS
+
+The cache on our process is 32KB. It's 8-way associative, and has 64B lines.  Starting by thinking about cache line size and total capacity.  Associativity is a second-order concern.
+
+I would think about this as two separate tasks.  The first is to issue as many memory accesses as quickly as possible.  The second part is how to ensure that as many of them as possible are misses.
+
+The lecture slides/video have quick intro to memory-level parallelism (which is what you want to maximize) and our lectures about the cache hierarchy will remind you about spatial and temporal locality (which is what you want to minimize).
+
 #### Thoughts on all_around
 
 How can you blend all of the above?  Perhaps one of the above
@@ -721,22 +776,22 @@ effects of changes to one metric on the others.
 We recommend working in this order: `MBMPS`, `MCMPS`, `IPC`, and `all_around`.
 It's just a suggestion.  You should definitely do `all_around` at the last.
 
-#### Optimize the Metrics
+### Optimize the Metrics
 
 The best approach to the Tour de Cache is a combination of
 thinking, investigation, and experimentation.
 
-##### Thinking
+#### Thinking
 
 Based on what you've learned about how the pipeline, caches, and branch prediction works, how can you get
 behavior each event calls for?
 
-##### Investigation
+#### Investigation
 
 Look at the assembly!  Doing well on these events demands that you
 look at the assembly to make sure it's doing what you expect.  You can generate assembly for `foo.cpp` with `make foo.s`.
 
-##### Experimentation
+#### Experimentation
 
 For the best results, try several different approaches.  Be open to
 surprising results and pursue them.  Try simple things.
@@ -754,7 +809,7 @@ Typing `/<function_name>` will search for your function.
 
 ---
 
-##### Basic Alogrithm for Doing This Lab
+#### Basic Alogrithm for Doing This Lab
 
 ```
 for e in [MBMPS, CMPS, IPC, all_around]:

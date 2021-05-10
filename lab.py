@@ -21,7 +21,7 @@ class ThisLab(CSE141Lab):
                            'fp_sum.cpp', 'MBMPS.cpp', 'all_around.cpp', 'IPC.cpp', 'MCMPS.cpp', 'config.env', 'outputs/*'],
             repo = kwargs.get("repo") or "https://github.com/NVSL/CSE141pp-Lab-Complex-DataStructures.git",
             reference_tag = kwargs.get("reference_tag") or "main",
-            valid_options = dict(),#MBMPS_OPTIMIZE="optimization flags for MBMPS.cpp",
+            valid_options = dict(EXPERIMENT_CMD_LINE_ARGS="Command line for experiment.csv"),#MBMPS_OPTIMIZE="optimization flags for MBMPS.cpp",
                                  #MCMPS_OPTIMIZE="optimization flags for Watts.cpp",
                                  #IPC_OPTIMIZE="optimization flags for IPC.cpp",
                                  #ALL_AROUND_OPTIMIZE="optimization flags for all_around.cpp"),

@@ -11,7 +11,7 @@
 # OPTIMIZE=<gcc options>  :  Optimization flags for gcc.
 # COMPILER=gcc-9          :  Choose the compiler you want.
 
-default: tourDeCache.csv IPC.s MCMPS.s MBMPS.s all_around.s
+default: asm tourDeCache.csv
 
 CLEANUP=*inst_mix.csv *l1.csv tourDeCache.csv *.exe *.s
 
@@ -24,6 +24,9 @@ MBMPS_OPTIMIZE=$(TOUR_DE_CACHE_OPTIMIZE)
 ALL_AROUND_OPTIMIZE=$(TOUR_DE_CACHE_OPTIMIZE)
 
 include $(ARCHLAB_ROOT)/cse141.make
+
+asm:  $(BUILD)IPC.s  $(BUILD)MCMPS.s  $(BUILD)MBMPS.s  $(BUILD)all_around.s
+	cp $(BUILD)*.s ./
 
 TAGS=--tag GPROF=$(GPROF) --tag OPTIMIZE=$(OPTIMIZE) --tag DEVEL_MODE=$(DEVEL_MODE)
 
@@ -46,10 +49,10 @@ $(BUILD)MCMPS.o: C_OPTS=$(MCMPS_OPTIMIZE)
 $(BUILD)MBMPS.o: C_OPTS=$(MBMPS_OPTIMIZE)
 $(BUILD)all_around.o: C_OPTS=$(ALL_AROUND_OPTIMIZE)
 
-IPC.s: C_OPTS=$(IPC_OPTIMIZE)
-MCMPS.s: C_OPTS=$(MCMPS_OPTIMIZE)
-MBMPS.s: C_OPTS=$(MBMPS_OPTIMIZE)
-all_around.s: C_OPTS=$(ALL_AROUND_OPTIMIZE)
+$(BUILD)IPC.s: C_OPTS=$(IPC_OPTIMIZE)
+$(BUILD)MCMPS.s: C_OPTS=$(MCMPS_OPTIMIZE)
+$(BUILD)MBMPS.s: C_OPTS=$(MBMPS_OPTIMIZE)
+$(BUILD)all_around.s: C_OPTS=$(ALL_AROUND_OPTIMIZE)
 
 tourDeCache.exe: $(BUILD)MBMPS.o $(BUILD)IPC.o $(BUILD)MCMPS.o $(BUILD)all_around.o 
 
@@ -58,6 +61,10 @@ exe: tourDeCache.exe fp_sum.exe
 
 tourDeCache.csv: tourDeCache.exe
 	./tourDeCache.exe tour --stats-file $@ $(TOUR_DE_CACHE_CMD_LINE_ARGS)
+	pretty-csv $@
+
+experiment.csv: tourDeCache.exe
+	./tourDeCache.exe tour --stats-file $@ --run-canary --MHz 1900 --engine papi $(EXPERIMENT_CMD_LINE_ARGS)
 	pretty-csv $@
 
 ARCHLAB_CACHE_CORE=archlab_run --engine papi --calc IPS=inst_count/runtime
