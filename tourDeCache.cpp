@@ -83,7 +83,9 @@ int main(int argc, char *argv[])
 			    MCMPS();
 		    }
 		    ran++;
-	    } else if (f == "IPC"|| f == "all") {
+	    }
+
+	    if (f == "IPC"|| f == "all") {
 		    pristine_machine(); // clear caches, disable turbo boost, reset clock speed
 		    set_cpu_clock_frequency(mhz_s[0]);
 		    {
@@ -92,7 +94,8 @@ int main(int argc, char *argv[])
 			    IPC();
 		    }
 		    ran++;
-	    } else if (f == "MBMPS"|| f == "all") {
+	    }
+	    if (f == "MBMPS"|| f == "all") {
 
 		    pristine_machine(); // clear caches, disable turbo boost, reset clock speed
 		    set_cpu_clock_frequency(mhz_s[0]);
@@ -102,7 +105,8 @@ int main(int argc, char *argv[])
 			    MBMPS();
 		    }
 		    ran++;
-	    } else if (f == "all_around"|| f == "all") {
+	    }
+	    if (f == "all_around"|| f == "all") {
 
 		    pristine_machine(); // clear caches, disable turbo boost, reset clock speed
 		    set_cpu_clock_frequency(mhz_s[0]);
