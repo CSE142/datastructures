@@ -1012,7 +1012,7 @@ long enough.  Or the canary failed.  Look up above for an earlier error.
 
 
 ```
-3.  For IPC and MCMPS, provide a before and after comparison of a change that improved performance. Show the assembly code and the assembly code of the function(don't put the whole `.s` file here) before and after the changes. Describe why the new assemly is better for the metric. 
+3.  For IPC and MBMPS, provide a before and after comparison of a change that improved performance. Show the assembly code and the assembly code of the function(don't put the whole `.s` file here) before and after the changes. Describe why the new assembly is better for the metric. 
 ```
 
 
