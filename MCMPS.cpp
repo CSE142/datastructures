@@ -25,7 +25,7 @@ int MCMPS() {
 	for (long int x = 0; x < 100000000; x++) {
 		//fast_rand(&seed);
 		int arr[x];
-		for( long int y = 0; y < x ; y++){
+		for( long int y = 0; y < 1000000000 ; y++){
 			sum += arr[y];
 			if ((sum  & 2) == 0) {
 			sum = sum + ( sum ^ arr[y]);
