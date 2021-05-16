@@ -30,7 +30,7 @@ int MCMPS() {
 	*/
 	int array[1024];
 	int sum = 0;
-	for (versatile long int i = 0; i < 1000000000; i++) {
+	for (volatile long int i = 0; i < 1000000000; i++) {
 		sum += array[i];
 	}
 	return sum;
