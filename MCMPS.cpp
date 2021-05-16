@@ -13,8 +13,8 @@ int MCMPS() {
 	B = (double *)malloc(sizeof(double)*x*z);
 	C = (double *)malloc(sizeof(double)*y*z);
 
-	for (i=0; i < x*z; i++) B[i] = double fast_rand(&seed);
-	for (i=0; i < y*z; i++) C[i] = double fast_rand(&seed);
+	for (i=0; i < x*z; i++) B[i] = (double) fast_rand(&seed);
+	for (i=0; i < y*z; i++) C[i] = (double) fast_rand(&seed);
 	for (i=0; i < x*y; i++) A[i] = 0;
 
 	for (i = 0; i < x; i++){
