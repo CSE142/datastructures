@@ -4,7 +4,7 @@
 
 int MCMPS() {
 
-	int x, y, z = sizeof(int);
+	int x, y, z = 10000;
 
 	double *A, *B, *C;
 	int i,j,k;
