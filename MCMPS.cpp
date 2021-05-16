@@ -5,10 +5,15 @@
 int MCMPS() {
 
 
-	double *A, *B, *C;
+	double *A; double *B; double *C;
 	int i,j,k;
 	uint64_t seed = 1;
-	register int x, y, z = 10000;
+	register int x;
+	register int y;
+	register int z;
+	x = 1000;
+	y = 1000;
+	z = 1000;
 	A = (double *)malloc(sizeof(double)*x*y);
 	B = (double *)malloc(sizeof(double)*x*z);
 	C = (double *)malloc(sizeof(double)*y*z);
