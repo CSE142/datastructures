@@ -33,7 +33,7 @@ int MBMPS() {
 #elif (IMPL == 2)
 //realistic measurement now
 int MBMPS() {
-	volatile uint64_t seed = 1;
+	uint64_t seed = 1;
 	uint64_t sum = 1;
 	for(long int i = 0; i < 200000000; i++) {
 		fast_rand(&seed);
