@@ -2,7 +2,8 @@
 #include <archlab.h>
 
 int MCMPS() {
-	
+
+/* THIS has right runtime but not right values	
 	uint64_t seed = 1;
 	register int sum = 1;
 	for(volatile long int i = 0; i < 1000000000; i++){
@@ -16,6 +17,17 @@ int MCMPS() {
 	}
 
 	return sum;
+	*/
+
+	int i, j, a[1024][1024], b[1024], c[1024];
+	int n = 1024;
+	for (i = 0; i < n; i++){
+		c[i] = 0;
+		for (j = 0; j < n; j++) {
+			c[i] = c[i] + a[i][j] * b[j];
+		}
+	}
+	return 0;
 
 
 	/*
