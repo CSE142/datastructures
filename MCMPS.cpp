@@ -20,7 +20,8 @@ int MCMPS() {
 	for (i = 0; i < x; i++){
 		for(j=0; j < y; j++){
 			for(k=0; k<z; k++){
-				A[i][j] += B[i][k] + C[k][j];
+				//A[i][j] += B[i][k] + C[k][j];
+				IND(A,i,j,y) += IND(B,i,k,z) * IND(C,k,j,z);
 			}
 		}
 	}
