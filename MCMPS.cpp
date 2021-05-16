@@ -23,12 +23,12 @@ int MCMPS() {
 	int n = 1024 * sizeof(int);
 	for (long int x = 0; x < 10000000; x++) {
 		fast_rand(&seed);
-		if ((seed % 2) == 1) {
+		//if ((seed % 2) == 1) {
 			for (i = 0; i < n; i++){
 				c[i] = 0;
-				for (j = 0; j < n; j++) {
+				for (j = 0; j < n * seed; j++) {
 					c[i] = c[i] + a[i][j] * b[j];
-				}
+		//		}
 			}
 		}
 	}
