@@ -13,6 +13,8 @@ int MCMPS() {
 		velt++;
 	}
 
+	return sum;
+
 	/*
 	for(volatile long int i = 0; i < 1000000000; i++){
 		fast_rand(&seed);
