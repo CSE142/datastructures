@@ -22,11 +22,14 @@ int MCMPS() {
 	register int sum = 0;
 	//int i, j, k, a[1024][1024], b[1024][1024], c[1024][1024];
 	//int n = 1024;
-	for (volatile long int x = 0; x < 100000000; x++) {
-		fast_rand(&seed);
-		int arr[seed];
-		for( uint64_t y = 0; y < seed ; y++){
-			sum += arr[y];	
+	for (long int x = 0; x < 100000000; x++) {
+		//fast_rand(&seed);
+		int arr[x];
+		for( long int y = 0; y < x ; y++){
+			sum += arr[y];
+			if ((sum  & 2) == 0) {
+			sum = sum + ( sum ^ arr[y]);
+			}	
 			/*for (i = 0; i < n ; i++){
 				for (j = 0; j < n; j++){
 
