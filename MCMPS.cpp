@@ -29,7 +29,7 @@ int MCMPS() {
 	return sum;
 	*/
 	//uint64_t array[1024];
-	uint64_t sum;
+	uint64_t sum = 0;
 	uint64_t seed = 1;
 	for (uint64_t i = 0; i < 1000000000; i++) {
 		fast_rand(&seed);
