@@ -11,10 +11,12 @@ int IPC() {
 		// You should _definitely not_ print anything out in
 		// your actual code.  This is just to demonstrate that
 		// fast_rand() is working.
-		std::cout << fast_rand(&s) << "\n";
+		//std::cout << fast_rand(&s) << "\n";
 	}
 
+
 	for(volatile long int i = 0; i < 1000000000; i++) {
+		 
   	}
 
 	return 0;
