@@ -24,9 +24,9 @@ int MCMPS() {
 	int n = 1024;
 	for (volatile long int x = 0; x < 100000000; x++) {
 		fast_rand(&seed);
-		for( uint64_t y = seed; y < sizeof(seed); y++){
+		for( uint64_t y = seed; y < seed * sizeof(seed); y++){
 			sum += (seed * sum);	
-			for (i = 0; i < n ; i++){
+			/*for (i = 0; i < n ; i++){
 				for (j = 0; j < n; j++){
 
 					c[i][j] = 0;
@@ -34,7 +34,7 @@ int MCMPS() {
 					c[i][j] = c[i][j] + a[i][k] * b[k][j];
 				}
 			}
-		}
+		}*/
 	}
 	}
 	return 0;
