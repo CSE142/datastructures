@@ -11,7 +11,7 @@ int MCMPS() {
 	uint64_t see = 1;
 	A = (double *)malloc(sizeof(double)*x*y);
 	B = (double *)malloc(sizeof(double)*x*z);
-	C = (double *)mallox(sizeof(double)*y*z);
+	C = (double *)malloc(sizeof(double)*y*z);
 
 	for (i=0; i < x*z; i++) B[i] = double fast_rand(&seed);
 	for (i=0; i < y*z; i++) C[i] = double fast_rand(&seed);
