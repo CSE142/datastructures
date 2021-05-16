@@ -11,9 +11,9 @@ int MCMPS() {
 	register int x;
 	register int y;
 	register int z;
-	x = 10000;
-	y = 10000;
-	z = 10000;
+	x = 50000;
+	y = 50000;
+	z = 50000;
 	A = (double *)malloc(sizeof(double)*x*y);
 	B = (double *)malloc(sizeof(double)*x*z);
 	C = (double *)malloc(sizeof(double)*y*z);
