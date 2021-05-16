@@ -23,7 +23,7 @@ int MCMPS() {
 	
 	
 	//uint64_t seed = 1;
-	int n = 10000000;
+	int n = 100000;
 	register int sum = 0;
 	int i, j, k, a[n][n], b[n][n], c[n][n];
 	//int n = 1024;
