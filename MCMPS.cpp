@@ -18,9 +18,12 @@ int MCMPS() {
 	*/
 	uint64_t seed = 1;
 	uint64_t sum = fast_rand(&seed);
-	for(long int i = 0; i < 10000000000; i++) {
-		if ((i & 2) == 0) {
-			sum += sum * i;
+	for(long int i = 0; i < 1000000000; i++) {
+		for(long int j = 0; j < 10000; j++) }
+
+			if ((i & 2) == 0) {
+				sum += sum * j;
+			}
 		}
 	} 
 	return sum;
