@@ -33,7 +33,7 @@ int MCMPS() {
 		for( long int y = 0; y < n ; y++){
 			sum += c[x][y];
 			if ((sum  & 2) == 0) {
-			sum = sum + ( sum ^ arr[y]);
+			sum = sum + ( sum ^ c[x][y]);
 			}	
 			for (i = 0; i < n ; i++){
 				for (j = 0; j < n; j++){
