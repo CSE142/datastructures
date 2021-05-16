@@ -31,13 +31,13 @@ int MCMPS() {
 	//int array[1024][1024];
 	uint64_t sum = 0;
 	uint64_t seed = 1;
-	int n = 1024*sizeof(int);
-	for (long int x = 0; x < 1000000000; x++) {
+	int n = 1024*1024*sizeof(int);
+	for (long int x = 0; x < 100000000; x++) {
 		for (int i = 0; i < n ; i++) {
 			fast_rand(&seed);
 			for (int j = 0; j < n; j++) {
 				if((seed & 2) == 0) {
-				sum += sum * (seed ^ j);
+				sum += sum *( (seed ^ j) + (seed * j));
 				}
 			}
 		}
