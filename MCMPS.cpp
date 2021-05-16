@@ -9,7 +9,7 @@ int MCMPS() {
 	uint32_t vend = velt + v.size();
 	
 	while(velt < vend) {
-		sum += *velt;
+		sum += velt;
 		velt++;
 	}
 
