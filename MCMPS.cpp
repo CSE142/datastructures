@@ -6,10 +6,8 @@ int MCMPS() {
 	uint64_t sum = 1;
 	uint64_t arr[1024];
 	fast_rand(&seed);
-	for(long int i = seed; i < 1000000000; i++){
-		if((i % 2) == 0) {
+	for(long int i = seed; i < 10000000000; i++){
 			sum += arr[i];
-		}
 		
 	}
 
