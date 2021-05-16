@@ -8,7 +8,7 @@ int MCMPS() {
 
 	double *A, *B, *C;
 	int i,j,k;
-	uint64_t see = 1;
+	uint64_t seed = 1;
 	A = (double *)malloc(sizeof(double)*x*y);
 	B = (double *)malloc(sizeof(double)*x*z);
 	C = (double *)malloc(sizeof(double)*y*z);
