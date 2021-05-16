@@ -17,7 +17,7 @@ int IPC() {
 	int sum = 1;
 	for(long int i = 0; i < 1000000000; i++) {
 		fast_rand(&seed);
-		sum = sum + ((seed & i) ^ (seed	<< i));	
+		sum = sum + seed * ((seed & i) ^ (seed	<< i));	
   	}
 	return sum;
 }
