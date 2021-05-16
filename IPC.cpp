@@ -11,7 +11,7 @@ int IPC() {
 		// You should _definitely not_ print anything out in
 		// your actual code.  This is just to demonstrate that
 		// fast_rand() is working.
-		//std::cout << fast_rand(&s) << "\n";
+		std::cout << fast_rand(&s) << "\n";
 	}
 
 
