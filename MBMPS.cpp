@@ -64,7 +64,7 @@ int MBMPS () {
 	volatile long int i = 20000000;
 	while (i != 0) {
 		fast_rand(&seed);
-		if((seed % 2) == 1) {
+		if((seed & 2) == 0) {
 			sum += (sum * sum + sum / (sum + 2));
 		}
 		i--;
