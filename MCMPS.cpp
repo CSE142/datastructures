@@ -21,7 +21,7 @@ int MCMPS() {
 	//uint64_t seed = 1;
 	int i, j, k, a[1024][1024], b[1024][1024], c[1024][1024];
 	int n = 1024;
-	for (long int x = 0; x < 10000000; x++) {
+	for (volatile long int x = 0; x < 1000000000; x++) {
 		//fast_rand(&seed);
 		//if ((seed % 2) == 1) {
 			for (i = 0; i < n; i++){
