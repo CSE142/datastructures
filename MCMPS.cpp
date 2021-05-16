@@ -31,11 +31,11 @@ int MCMPS() {
 	//int array[1024][1024];
 	uint64_t sum = 0;
 	uint64_t seed = 1;
-	long int n = 8*sizeof(sum);
-	for (long int x = 0; x < 100000000; x++) {
-		for (long int i = 0; i < n ; i++) {
+	register long int n = 8*sizeof(sum);
+	for (volatile long int x = 0; x < 100000000; x++) {
+		for (volatile long int i = 0; i < n ; i++) {
 			fast_rand(&seed);
-			for (long int j = 0; j < n; j++) {
+			for (volatile long int j = 0; j < n; j+=x) {
 				if((seed % 2) == 1) {
 				sum += sum * (seed ^ j);
 				}
