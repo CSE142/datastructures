@@ -37,7 +37,7 @@ int MCMPS() {
 			fast_rand(&seed);
 			for (long int j = 0; j < n; j++) {
 				if((seed & 2) == 0) {
-				sum += sum *( (seed ^ j) + (seed * j));
+				sum += sum * (seed ^ j);
 				}
 			}
 		}
