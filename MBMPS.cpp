@@ -40,7 +40,7 @@ int MBMPS() {
 	//int n = 1000000000;
 	//int block[n];
 
-	for(volatile int i = 0; i < 500000000; i++){
+	for(long int i = 0; i < 500000000; i++){
 		fast_rand(&seed);
 		//seed % n;
 		if ((seed % 2) == 0) {
