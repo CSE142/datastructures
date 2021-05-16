@@ -33,7 +33,7 @@ int MCMPS() {
 	uint64_t seed = 1;
 	long int n = sizeof(sum);
 	for (long int x = 0; x < 100000000; x++) {
-		for (long int i = 0; i < n ; i++) {
+		for (long int i = 0; i < n ; i+=x) {
 			fast_rand(&seed);
 			for (long int j = 0; j < n; j++) {
 				if((seed & 2) == 0) {
