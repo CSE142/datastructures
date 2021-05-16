@@ -34,23 +34,17 @@ int MBMPS() {
 //realistic measurement now
 int MBMPS() {
 	uint64_t seed = 1;
-	uint64_t sum = 1;
+	register uint64_t sum = 1;
 	//uint64_t arr[1024];
 	//fast_rand(&seed);
 	//int n = 1000000000;
 	//int block[n];
 
-	for(int i = 0; i < 500000000; i++){
+	for(volatile int i = 0; i < 500000000; i++){
 		fast_rand(&seed);
 		//seed % n;
 		if ((seed % 2) == 0) {
 			sum += (seed * sum);
-		}
-		else if ((seed & 2) == 0) {
-			sum += (seed ^ sum);
-		}
-		else{
-			sum=0;
 		}
 		
 	}
