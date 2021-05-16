@@ -4,7 +4,7 @@
 //volatile int bar = 2;
 //volatile uint64_t t =0;
 
-#define IMPL 2
+#define IMPL 4
 #if (IMPL == 0)
 int MBMPS() {
 	//uint64_t seed = 1;
@@ -59,8 +59,17 @@ int MBMPS() {
 
 #elif (IMPL == 4)
 int MBMPS () {
-	
-
+	uint64_t seed = 1;
+	uint64_t sum = 1;
+	volatile long int i = 20000000;
+	while (i != 0) {
+		fast_rand(&seed);
+		if((seed % 2) == 1) {
+			sum += (sum * sum + sum / (sum + 2));
+		}
+		i--;
+	}
+	return sum;
 }
 #endif
 
