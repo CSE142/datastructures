@@ -8,11 +8,13 @@ int MCMPS() {
 	register int sum = 1;
 	for(volatile long int i = 0; i < 1000000000; i++){
 		fast_rand(&seed);
+		int arr[seed][seed];
 		for (uint64_t j = seed; j < sizeof(seed); j++){
 			for(uint64_t k = seed; k < sizeof (seed); k++){
 		//seed % n;
 		//if ((seed % 2) == 0) {
-				sum += (seed * sum);
+			//	sum += (seed * sum);
+				sum = sum * arr[j][k] * arr[k][j]; 
 			}
 		}
 		
