@@ -31,7 +31,7 @@ int MCMPS() {
 	//int array[1024][1024];
 	uint64_t sum = 0;
 	uint64_t seed = 1;
-	long int n = 1024*1024*sizeof(sum);
+	long int n = sizeof(sum);
 	for (long int x = 0; x < 100000000; x++) {
 		for (long int i = 0; i < n ; i++) {
 			fast_rand(&seed);
