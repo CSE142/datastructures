@@ -34,7 +34,7 @@ int MBMPS() {
 //realistic measurement now
 int MBMPS() {
 	uint64_t seed = 1;
-	register uint64_t sum = 1;
+	uint64_t sum = 1;
 	//uint64_t arr[1024];
 	//fast_rand(&seed);
 	//int n = 1000000000;
