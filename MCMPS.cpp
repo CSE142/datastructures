@@ -89,5 +89,6 @@ int MCMPS() {
 		}
 		return i;
 	}
+	return 0;
 
 }
