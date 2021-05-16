@@ -28,10 +28,12 @@ int MCMPS() {
 	} 
 	return sum;
 	*/
-	int array[100000];
-	int sum = 0;
+	int array[1024];
+	uint64_t sum = 0;
+	uint64_t seed = 1
 	for (volatile long int i = 0; i < 1000000000; i++) {
-		sum += array[i/10000];
+		fast_rand(&seed);
+		sum += array[seed % 1024];
 	}
 	return sum;
 
