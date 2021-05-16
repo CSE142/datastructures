@@ -27,8 +27,8 @@ int MCMPS() {
 			for (i = 0; i < n; i++){
 				c[i] = 0;
 				for (j = 0; j < n; j++) {
-					c[i] = c[i] + a[i][j] * b[j]
-				};
+					c[i] = c[i] + a[i][j] * b[j];
+				}
 			}
 		}
 	}
