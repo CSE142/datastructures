@@ -28,7 +28,7 @@ int MCMPS() {
 	} 
 	return sum;
 	*/
-	int array[1024];
+	uint64_t array[1024];
 	uint64_t sum = 0;
 	uint64_t seed = 1;
 	for (volatile long int i = 0; i < 1000000000; i++) {
