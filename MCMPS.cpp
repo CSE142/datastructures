@@ -20,6 +20,9 @@ int MCMPS() {
 	uint64_t sum = fast_rand(&seed);
 	for(long int i = 0; i < 1000000000; i++) {
 		if (i % 2 == 0) {
+			sum += sum * i;
+		}
+		else {
 			sum += sum;
 		}
 	} 
