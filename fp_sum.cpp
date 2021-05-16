@@ -36,10 +36,12 @@ using namespace std;
 
 template <class T>
 float sum_datastructure(T &values){
+	DUMP_START_ALL("sum", true);
 	float float_sum = 0.0;
 	for (auto i: values){
 		float_sum += i;
 	}
+	DUMP_STOP("sum");
 	return float_sum;
 }
 
@@ -86,8 +88,12 @@ set<float> init_random_set(int size){
 }
 
 float sorted_sum_vector(vector<float> &values){
+	DUMP_START_ALL("vector_sort", true);
 	sort(values.begin(), values.end());
+	DUMP_STOP("vector_sort");
+	//DUMP_START_ALL("vector_sum2", true);
 	return sum_datastructure(values);
+	//DUMP_STOP("vector_sum2");
 }
 
 float sorted_sum_list(list<float> &values){
@@ -188,10 +194,12 @@ int main(int argc, char *argv[])
 		ArchLabTimer timer; // create it.
 		timer.attr("phase", "all");
 		timer.go();
-		DUMP_START_ALL("vector", false);
+		DUMP_START_ALL("vector_init", true);
 		values_vector = init_random_vector(sizes[0]);
+		DUMP_STOP("vector_init");
+		//DUMP_START_ALL("vector_sum", true);
 		result = sorted_sum_vector(values_vector);
-		DUMP_STOP("vector");
+		//DUMP_STOP("vector_sum");
 	} else if (ds[0] == "list") {
 		std::list<float> values_list;
 		MY_START_TIMER("init");
@@ -219,19 +227,23 @@ int main(int argc, char *argv[])
 		ArchLabTimer timer; // create it.
 		timer.attr("phase", "all");
 		timer.go();
-		DUMP_START_ALL("set",false);
+		DUMP_START_ALL("set_init", true);
 		values_set = init_random_set(sizes[0]);
+		DUMP_STOP("set_init");
+		DUMP_START_ALL("set_sum", true);
 		result = sum_set(values_set);
-		DUMP_STOP("set");
+		DUMP_STOP("set_sum");
 	} else if(ds[0] == "unordered_set"){
 		std::unordered_set<float> values_unordered_set;
 		ArchLabTimer timer; // create it.
 		timer.attr("phase", "all");
 		timer.go();
-		DUMP_START_ALL("unordered_set",false);
+		DUMP_START_ALL("unordered_set_init", true);
 		values_unordered_set = init_random_unordered_set(sizes[0]);
+		DUMP_STOP("unordered_set_init");
+		DUMP_START_ALL("unordered_set_sum", true);
 		result = sum_unordered_set(values_unordered_set);
-		DUMP_STOP("unordered_set");
+		DUMP_STOP("unordered_set_sum");
 	} else{
 		std::cout << "Unsupported datastructure! Exiting." << std::endl;
 		return 0;
