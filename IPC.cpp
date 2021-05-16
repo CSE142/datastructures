@@ -15,7 +15,7 @@ int IPC() {
 	}
 */
 	int sum = 1;
-	for(volatile long int i = 0; i < 1000000000; i++) {
+	for(long int i = 0; i < 1000000000; i++) {
 		fast_rand(&seed);
 		sum = sum + ((seed & i) ^ (seed	<< i));	
   	}
