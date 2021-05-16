@@ -16,6 +16,8 @@ int MCMPS() {
 
 	return sum;
 	*/
+
+	/*
 	uint64_t seed = 1;
 	uint64_t sum = 1;
 	for(uint64_t i = 0; i < 1000000000; i++) {
@@ -25,4 +27,12 @@ int MCMPS() {
 		}
 	} 
 	return sum;
+	*/
+	int array[1024];
+	int sum = 0;
+	for (versatile long int i = 0; i < 1000000000; i++) {
+		sum += array[i];
+	}
+	return sum;
+
 }
