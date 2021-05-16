@@ -67,6 +67,15 @@ int MBMPS () {
 		if((seed & 2) == 0) {
 			sum += (sum * sum + sum / (sum + 2));
 		}
+		else if ((seed % 2) == 1) {
+			sum += sum;
+		}
+		else if ((seed % 2) == 0) {
+			sum +- sum;
+		}
+		else {
+			sum++;
+		}
 		i--;
 	}
 	return sum;
