@@ -5,8 +5,8 @@ int MCMPS() {
 	std::vector<uint32_t> v;
 	//uint64_t seed = 1;
 	uint64_t sum = 1;
-	uint32_t *restrict velt = &v[0];
-	uint32_t *restrict vend = velt + v.size();
+	uint32_t velt = &v[0];
+	uint32_t vend = velt + v.size();
 	
 	while(velt < vend) {
 		sum += *velt;
