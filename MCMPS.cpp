@@ -18,17 +18,19 @@ int MCMPS() {
 
 	return sum;
 	*/
-	uint64_t seed = 1;
-	int i, j, a[1024][1024], b[1024], c[1024];
-	int n = 1024 * sizeof(int);
+	//uint64_t seed = 1;
+	int i, j, k, a[1024][1024], b[1024][1024], c[1024][1024];
+	int n = 1024 * 1024 * sizeof(int);
 	for (long int x = 0; x < 10000000; x++) {
-		fast_rand(&seed);
+		//fast_rand(&seed);
 		//if ((seed % 2) == 1) {
 			for (i = 0; i < n; i++){
-				c[i] = 0;
-				for (j = 0; j < n * seed; j++) {
-					c[i] = c[i] + a[i][j] * b[j];
-		//		}
+				for (j = 0; j < n; j++){
+
+					c[i][j] = 0;
+					for (k = 0; k < n; k++) {
+					c[i][j] = c[i][ij] + a[i][k] * b[k][j];
+				}
 			}
 		}
 	}
