@@ -21,7 +21,7 @@ int MCMPS() {
 
 	int i, j, a[1024][1024], b[1024], c[1024];
 	int n = 1024;
-	for (volatile long int x = 0; x < 10000000; x++) {
+	for (long int x = 0; x < n*n; x++) {
 	for (i = 0; i < n; i++){
 		c[i] = 0;
 		for (j = 0; j < n; j++) {
