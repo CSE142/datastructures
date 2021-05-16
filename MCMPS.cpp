@@ -16,5 +16,5 @@ int MCMPS() {
 		
 	}
 
-	return 0;
+	return sum;
 }
