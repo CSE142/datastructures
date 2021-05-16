@@ -7,7 +7,7 @@ int MCMPS() {
 	//uint64_t arr[1024];
 	//fast_rand(&seed);
 	int n = 1000000000;
-	int *block = malloc(n * sizeof(int));
+	int block[n];
 
 	for(int i = 0; i < n/10; i++){
 		fast_rand(&seed);
