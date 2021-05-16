@@ -18,7 +18,7 @@ int MCMPS() {
 
 	return sum;
 	*/
-	uint64_t seed = 1;
+	//uint64_t seed = 1;
 	register int sum = 0;
 	//int i, j, k, a[1024][1024], b[1024][1024], c[1024][1024];
 	//int n = 1024;
