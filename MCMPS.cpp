@@ -23,9 +23,9 @@ int MCMPS() {
 	
 	
 	//uint64_t seed = 1;
-	double n = 10000000;
+	long int n = 10000000;
 	//register int sum = 0;
-	double i, j, k, a[n][n], b[n][n], c[n][n];
+	long int i, j, k, a[n][n], b[n][n], c[n][n];
 	//int n = 1024;
 	//for (long int x = 0; x < n; x++) {
 		//fast_rand(&seed);
