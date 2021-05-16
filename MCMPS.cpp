@@ -24,29 +24,28 @@ int MCMPS() {
 	
 	//uint64_t seed = 1;
 	int n = 100000;
-	register int sum = 0;
+	//register int sum = 0;
 	int i, j, k, a[n][n], b[n][n], c[n][n];
 	//int n = 1024;
-	for (long int x = 0; x < n; x++) {
+	//for (long int x = 0; x < n; x++) {
 		//fast_rand(&seed);
 		//int arr[x];
-		for( long int y = 0; y < n ; y++){
-			sum += c[x][y];
-			if ((sum  & 2) == 0) {
-			sum = sum + ( sum ^ c[x][y]);
-			}	
+		//for( long int y = 0; y < n ; y++){
+			//sum += c[x][y];
+			//if ((sum  & 2) == 0) {
+			//sum = sum + ( sum ^ c[x][y]);
+			//}	
 			for (i = 0; i < n ; i++){
 				for (j = 0; j < n; j++){
-
-					c[i][j] = 0;
+					a[i][j] = a[i][j] + b[j][i];
 					for (k = 0; k < n; k++) {
 					c[i][j] = c[i][j] + a[i][k] * b[k][j];
 				}
 			}
 		}
-	}
-	}
-	return sum;
+//	}
+//	}
+	return 0;
 
 
 
