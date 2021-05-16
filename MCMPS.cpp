@@ -20,12 +20,13 @@ int MCMPS() {
 	*/
 	uint64_t seed = 1;
 	register int sum = 0;
-	int i, j, k, a[1024][1024], b[1024][1024], c[1024][1024];
-	int n = 1024;
+	int arr[sizeof(int) * 1024];
+	//int i, j, k, a[1024][1024], b[1024][1024], c[1024][1024];
+	//int n = 1024;
 	for (volatile long int x = 0; x < 100000000; x++) {
 		fast_rand(&seed);
 		for( uint64_t y = seed; y < seed * sizeof(seed); y++){
-			sum += (seed * sum);	
+			sum += arr[y];	
 			/*for (i = 0; i < n ; i++){
 				for (j = 0; j < n; j++){
 
