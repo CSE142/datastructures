@@ -14,10 +14,10 @@ int IPC() {
 		std::cout << fast_rand(&s) << "\n";
 	}
 */
-	int sum = 1;
-	for(long int i = 0; i < 1000000000; i++) {
+	register volatile int sum = 1;
+	for(volatile long int i = 0; i < 1000000000; i++) {
 		fast_rand(&seed);
-		sum = sum + seed * ((seed & i) ^ (seed	<< i));	
+		sum = sum + ((seed + i) ^ (seed & i) ^ (seed << i));	
   	}
 	return sum;
 }
