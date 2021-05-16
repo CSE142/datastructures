@@ -3,21 +3,23 @@
 
 int MCMPS() {
 
-/* THIS has right runtime but not right values	
+//THIS has right runtime but not right values	
 	uint64_t seed = 1;
 	register int sum = 1;
 	for(volatile long int i = 0; i < 1000000000; i++){
 		fast_rand(&seed);
 		for (uint64_t j = seed; j < sizeof(seed); j++){
+			for(uint64_t k = seed; k < sizeof (seed); k++){
 		//seed % n;
 		//if ((seed % 2) == 0) {
-			sum += (seed * sum);
+				sum += (seed * sum);
+			}
 		}
 		
 	}
 
 	return sum;
-	*/
+	
 	/*
 	//uint64_t seed = 1;
 	register int sum = 0;
@@ -75,20 +77,4 @@ int MCMPS() {
 	}
 	return sum;
 	*/
-
-	struct link {
-		struct link * next;
-	};
-
-	int ll_length (struct link *l) {
-		int i = 0;
-
-		while(l->next != NULL) {
-			l = l->next;
-			i++;
-		}
-		return i;
-	}
-	return 0;
-
 }
