@@ -18,6 +18,7 @@ int MCMPS() {
 
 	return sum;
 	*/
+	/*
 	//uint64_t seed = 1;
 	register int sum = 0;
 	//int i, j, k, a[1024][1024], b[1024][1024], c[1024][1024];
@@ -30,7 +31,7 @@ int MCMPS() {
 			if ((sum  & 2) == 0) {
 			sum = sum + ( sum ^ arr[y]);
 			}	
-			/*for (i = 0; i < n ; i++){
+			for (i = 0; i < n ; i++){
 				for (j = 0; j < n; j++){
 
 					c[i][j] = 0;
@@ -38,10 +39,11 @@ int MCMPS() {
 					c[i][j] = c[i][j] + a[i][k] * b[k][j];
 				}
 			}
-		}*/
+		}
 	}
 	}
 	return 0;
+*/
 
 
 	/*
@@ -73,5 +75,19 @@ int MCMPS() {
 	}
 	return sum;
 	*/
+
+	struct link {
+		struct link * next;
+	};
+
+	int ll_length (struct link *l) {
+		int i = 0;
+
+		while(l->next != NULL) {
+			l = l->next;
+			i++;
+		}
+		return i;
+	}
 
 }
