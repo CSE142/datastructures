@@ -7,7 +7,7 @@ int MCMPS() {
 	register int sum = 1;
 	for(volatile long int i = 0; i < 1000000000; i++){
 		fast_rand(&seed);
-		for (long int j = seed; j < sizeof(seed); j++){
+		for (uint64_t int j = seed; j < sizeof(seed); j++){
 		//seed % n;
 		//if ((seed % 2) == 0) {
 			sum += (seed * sum);
