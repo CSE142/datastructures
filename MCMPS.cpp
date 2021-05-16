@@ -18,7 +18,7 @@ int MCMPS() {
 	*/
 	uint64_t seed = 1;
 	uint64_t sum = fast_rand(&seed);
-	for(uint64_t i = 0; i < 20000000; i++) {
+	for(long int i = 0; i < 1000000000; i++) {
 		if (i % 2 == 0) {
 			sum += sum;
 		}
