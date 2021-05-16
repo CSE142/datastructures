@@ -21,7 +21,7 @@ int MCMPS() {
 	for(uint64_t i = 0; i < 1000000000; i++) {
 		fast_rand(&seed);
 		if ((seed & 2) == 0) {
-			sum += *(seed + i);
+			sum += (seed + i);
 		}
 	} 
 	return sum;
