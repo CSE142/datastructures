@@ -4,7 +4,7 @@
 int MCMPS() {
 
 //THIS has right runtime but not right values	
-	/*uint64_t seed = 1;
+	uint64_t seed = 1;
 	register int sum = 1;
 	for(volatile long int i = 0; i < 1000000000; i++){
 		fast_rand(&seed);
@@ -19,9 +19,9 @@ int MCMPS() {
 	}
 
 	return sum;
-	*/
 	
 	
+/*	
 	//uint64_t seed = 1;
 	long int n = 80000;
 	//register int sum = 0;
@@ -47,7 +47,7 @@ int MCMPS() {
 //	}
 //	}
 	return 0;
-
+*/
 
 
 	/*
