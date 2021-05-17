@@ -7,7 +7,7 @@ int MCMPS() {
 	uint64_t seed = 1;
 	int x = 20000;
 	int y = 50000;
-	int z = 10000;
+	int z = 20000;
 	//register int sum = 0;
 	int i, j, k;
        	//int d[x][y], e[x][z], f[y][z];
