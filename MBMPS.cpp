@@ -40,10 +40,10 @@ int MBMPS() {
 	//int n = 1000000000;
 	//int block[n];
 
-	for(long int i = 0; i < 500000000; i++){
+	for(int i = 0; i < 500000000; i++){
 		fast_rand(&seed);
 		//seed % n;
-		if (((seed % 2) == 0) && ((seed ^ 2) == 0)) {
+		if ((seed % 2) == 0) {
 			sum += (seed * sum);
 		}
 		
