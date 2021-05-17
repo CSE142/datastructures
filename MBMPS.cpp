@@ -45,7 +45,8 @@ int MBMPS() {
 		fast_rand(&seed);
 		//seed % n;
 		if ((seed % 2) == 0) {
-			sum += (seed * sum);
+			sum += (seed * i);
+			sum += (seed * (i+1));
 		}
 		
 	}
