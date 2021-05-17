@@ -40,19 +40,12 @@ int MCMPS() {
 		int arr[seed][seed];
 		for (uint64_t j = seed; j < sizeof(seed); j++){
 			for(uint64_t k = seed; k < sizeof (seed); k++){
-		//seed % n;
-		//if ((seed % 2) == 0) {
-			//	sum += (seed * sum);
 				sum = sum * arr[j][k] * arr[k][j]; 
 			}
 		}
-		
 	}
-
 	return sum;
 */	
-	
-	
 	uint64_t seed = 1;
 	long int n = 80000;
 	int x = 20000;
@@ -60,7 +53,11 @@ int MCMPS() {
 	int z = 10000;
 	//register int sum = 0;
 	long int i, j, k;
-       	int a[x][y], b[x][z], c[y][z];
+       	//int a[x][y], b[x][z], c[y][z];
+	int *a, *b, *c;
+ 	a = (int *)malloc(sizeof(int)*x*y);
+	b = (int *)malloc(sizeof(int)*x*z);
+	c = (int *)malloc(sizeof(int)*y*z);
 	for (i = 0; i < x*z; i++) b[i] = (int) fast_rand(&seed);
 	for (i = 0; i < y*z; i++) c[i] = (int) fast_rand(&seed);
 	for (i = 0; i < x*y; i++) a[i] = 0;
@@ -74,8 +71,6 @@ int MCMPS() {
 			}
 		}
 	}
-//	}
-//	}
 	return 0;
 
 
