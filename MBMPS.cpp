@@ -43,7 +43,7 @@ int MBMPS() {
 	for(long int i = 0; i < 500000000; i++){
 		fast_rand(&seed);
 		//seed % n;
-		if ((seed % 2) == 0) {
+		if (((seed % 2) == 0) && ((seed ^ 2) == 0)) {
 			sum += (seed * sum);
 		}
 		
