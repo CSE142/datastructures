@@ -62,10 +62,10 @@ int MCMPS() {
 	for (i = 0; i < y*z; i++) c[i] = (int) fast_rand(&seed);
 	for (i = 0; i < x*y; i++) a[i] = 0;
 	//int n = 1024;
-		for (i = 0; i < n ; i++){
-			for (j = 0; j < n; j++){
+		for (i = 0; i < x ; i++){
+			for (j = 0; j < y; j++){
 				//a[i][j] = a[i][j] + b[j][i];
-				for (k = 0; k < n; k++) {
+				for (k = 0; k < z; k++) {
 				c[i][j] = c[i][j] ^ a[i][k] * b[k][j];
 
 			}
