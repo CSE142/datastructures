@@ -3,6 +3,7 @@
 #define IND(a, x, y, d) a[(x)*(d)+(y)]
 
 int MCMPS() {
+	uint64_t seed = 1;
 	int x = 20000;
 	int y = 50000;
 	int z = 10000;
