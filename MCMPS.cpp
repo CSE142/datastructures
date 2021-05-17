@@ -9,7 +9,7 @@ int MCMPS() {
 	int z = 10000;
 	//register int sum = 0;
 	int i, j, k;
-       	int d[x][y], e[x][z], f[y][z];
+       	//int d[x][y], e[x][z], f[y][z];
 	int *a, *b, *c;
  	a = (int *)malloc(sizeof(int)*x*y);
 	b = (int *)malloc(sizeof(int)*x*z);
@@ -19,7 +19,7 @@ int MCMPS() {
 	for (i = 0; i < x*y; i++) a[i] = 0;
 		for (i = 0; i < x ; i++){
 			for (j = 0; j < y; j++){
-				d[i][j] = e[i][j] + f[j][i];
+	//			d[i][j] = e[i][j] + f[j][i];
 				for (k = 0; k < z; k++) {
 			//	d[i][j] = d[i][j] ^ e[i][k] * f[k][j];
 				IND(a,i,j,y) += IND(b,i,k,z) * IND(c,k,j,z);
