@@ -47,12 +47,12 @@ int MCMPS() {
 	return sum;
 */	
 	uint64_t seed = 1;
-	long int n = 80000;
+	
 	int x = 20000;
 	int y = 50000;
 	int z = 10000;
 	//register int sum = 0;
-	long int i, j, k;
+	int i, j, k;
        	//int a[x][y], b[x][z], c[y][z];
 	int *a, *b, *c;
  	a = (int *)malloc(sizeof(int)*x*y);
