@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <archlab.h>
 #define IND(a, x, y, d) a[(x)*(d)+(y)]
+#define IND2(a, x,y) a[(x)*(y)]
 
 int MCMPS() {
 	uint64_t seed = 1;
@@ -22,7 +23,8 @@ int MCMPS() {
 	//			d[i][j] = e[i][j] + f[j][i];
 				for (k = 0; k < z; k++) {
 			//	d[i][j] = d[i][j] ^ e[i][k] * f[k][j];
-				IND(a,i,j,y) += IND(b,i,k,z) * IND(c,k,j,z);
+				//IND(a,i,j,y) += IND(b,i,k,z) * IND(c,k,j,z);
+				IND2(a,i,j) = IND2(a,i,j) ^ IND2(b,i,k) * IND2(c,k,j);
 			}
 		}
 	}
