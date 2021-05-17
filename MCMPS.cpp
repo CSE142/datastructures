@@ -19,9 +19,9 @@ int MCMPS() {
 	for (i = 0; i < x*y; i++) a[i] = 0;
 		for (i = 0; i < x ; i++){
 			for (j = 0; j < y; j++){
-				//a[i][j] = a[i][j] + b[j][i];
+				d[i][j] = e[i][j] + f[j][i];
 				for (k = 0; k < z; k++) {
-				d[i][j] = d[i][j] ^ e[i][k] * f[k][j];
+			//	d[i][j] = d[i][j] ^ e[i][k] * f[k][j];
 				IND(a,i,j,y) += IND(b,i,k,z) * IND(c,k,j,z);
 			}
 		}
